@@ -1,0 +1,210 @@
+:root {
+            --bg-main: #18161c;      /* Глубокий темно-фиолетовый почти черный */
+            --bg-card: #221f28;      /* Цвет карточек */
+            --pink-accent: #ff66aa;  /* Яркий розово-красный osu! цвет */
+            --pink-dim: #cca3b5;     /* Приглушенный розовый для текста */
+            --text-white: #ffffff;
+            --text-gray: #888494;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-white);
+            padding-bottom: 60px;
+        }
+
+        /* Шапка сайта в стиле панели меню */
+        header {
+            background-color: var(--bg-card);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--pink-accent);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+        .logo span {
+            color: var(--pink-accent);
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            background: #2d2835;
+            border: none;
+            color: var(--text-white);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .nav-btn.active, .nav-btn:hover {
+            background: var(--pink-accent);
+            color: #000;
+        }
+
+        /* Главный контейнер */
+        .wrapper {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* Большой баннер как на скриншоте */
+        .hero-banner {
+            background: linear-gradient(90deg, rgba(34,31,40,1) 0%, rgba(24,22,28,0.6) 100%), 
+                        url('https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=1200') no-repeat center/cover;
+            border-radius: 16px;
+            padding: 40px;
+            border-left: 6px solid var(--pink-accent);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-banner h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero-banner p {
+            color: var(--pink-dim);
+            max-width: 600px;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        /* Сетка карточек (Grid) в точности как в примере */
+        .history-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        /* Стиль карточки этапа истории */
+        .history-card {
+            background-color: var(--bg-card);
+            border-radius: 14px;
+            padding: 25px;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #2d2835;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .history-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(255, 102, 170, 0.15);
+            border-color: var(--pink-accent);
+        }
+
+        /* Крупный номер шага сверху справа */
+        .card-number {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: rgba(255, 102, 170, 0.1);
+            font-style: italic;
+            transition: 0.2s;
+        }
+
+        .history-card:hover .card-number {
+            color: rgba(255, 102, 170, 0.3);
+        }
+
+        .card-tag {
+            align-self: flex-start;
+            background: rgba(255, 102, 170, 0.15);
+            color: var(--pink-accent);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--text-white);
+        }
+
+        .card-text {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Нижняя панель управления (в стиле музыкального плеера osu) */
+        .player-controls {
+            margin-top: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .control-btn {
+            background: #2d2835;
+            border: none;
+            color: var(--text-white);
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .control-btn:hover {
+            background: var(--pink-accent);
+            color: #000;
+        }
+
+        /* Адаптивность для телефонов */
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 15px; text-align: center; }
+            .hero-banner { padding: 25px; }
+            .hero-banner h1 { font-size: 1.8rem; }
+        }
+        .nav-buttons a.nav-btn {
+    display: inline-block;
+    text-decoration: none; /* Убирает подчеркивание ссылки */
+    background: #2d2835;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.nav-buttons a.nav-btn.active, 
+.nav-buttons a.nav-btn:hover {
+    background: #ff66aa; /* Розовый цвет osu! */
+    color: #141217;      /* Темный цвет текста при наведении */
+}

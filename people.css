@@ -1,0 +1,102 @@
+:root {
+            --bg-main: #141217;
+            --bg-card-1: #1d1a22;
+            --bg-card-2: #24202b;
+            --pink-accent: #ff66aa;
+            --pink-dim: #cca3b5;
+            --text-white: #ffffff;
+            --text-gray: #9c98a6;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Roboto, sans-serif; }
+        body { background-color: var(--bg-main); color: var(--text-white); padding-bottom: 80px; overflow-x: hidden; }
+        
+        header {
+            background-color: var(--bg-card-2);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--pink-accent);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+        }
+        .logo { font-size: 22px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
+        .logo span { color: var(--pink-accent); }
+        .nav-buttons { display: flex; gap: 15px; }
+        
+        .nav-buttons a.nav-btn {
+            display: inline-block;
+            text-decoration: none;
+            background: #2d2835;
+            color: var(--text-white);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .nav-buttons a.nav-btn.active, .nav-buttons a.nav-btn:hover {
+            background: var(--pink-accent);
+            color: #141217;
+        }
+
+        .wrapper { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
+        
+        .hero-banner {
+            background: linear-gradient(90deg, rgba(36,32,43,1) 0%, rgba(20,18,23,0.7) 100%);
+            border-radius: 16px;
+            padding: 45px;
+            border-left: 6px solid var(--pink-accent);
+            margin-bottom: 35px;
+        }
+        .hero-banner h1 { font-size: 2.8rem; margin-bottom: 10px; text-transform: uppercase; }
+        .hero-banner p { color: var(--pink-dim); max-width: 700px; font-size: 1.1rem; }
+
+        .people-grid { display: block; width: 100%; font-size: 0; }
+        
+        .person-card {
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: calc(33.333% - 18px); 
+            height: 270px;
+            margin: 0 9px 25px 9px;
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            vertical-align: top;
+            font-size: 16px;
+            transition: all 0.25s ease;
+        }
+        
+        .person-card:nth-child(4n+1), .person-card:nth-child(4n+4) { background-color: var(--bg-card-1); }
+        .person-card:nth-child(4n+2), .person-card:nth-child(4n+3) { background-color: var(--bg-card-2); }
+        
+        .person-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 102, 170, 0.12);
+            border-color: var(--pink-accent);
+        }
+
+        .person-role { color: var(--pink-accent); font-size: 11px; font-weight: bold; text-transform: uppercase; margin-bottom: 10px; }
+        .person-name { font-size: 1.4rem; margin-bottom: 8px; color: #fff; }
+        .person-desc { color: var(--text-gray); font-size: 0.95rem; line-height: 1.5; }
+        
+        .profile-btn {
+            align-self: flex-start;
+            background: rgba(255, 102, 170, 0.15);
+            color: var(--pink-accent);
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+        .profile-btn:hover { background: var(--pink-accent); color: #141217; }
+
+        @media (max-width: 992px) { .person-card { width: calc(50% - 18px); } }
+        @media (max-width: 650px) { 
+            header { flex-direction: column; gap: 10px; }
+            .person-card { width: 100%; margin: 0 0 20px 0; } 
+        }
